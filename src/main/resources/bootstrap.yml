@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: codebox-cloud-config
+  profiles:
+    active: native
+
+---
+spring:
+  profiles: native
+
+
+---
+spring:
+  profiles: local
+
+
+---
+spring:
+  profiles: dev
+
+
+---
+spring:
+  profiles: stag
+
+
+---
+spring:
+  profiles: prod
