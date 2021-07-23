@@ -2,44 +2,48 @@ server:
   port: 8500
 
 spring:
+  application:
+    name: codebox-cloud-config
   profiles:
     active: native
   banner:
     location: classpath:/banner/banner.txt
 
-
 ---
 spring:
-  profiles: native
+  config:
+    activate:
+      on-profile: native
   cloud:
     config:
       server:
         native:
           search-locations: file:///${codebox.config.dir}
-        bootstrap: true
 
 codebox:
   config:
     dir: D:/workspace/codebox/codebox.config
 
-
+---
+spring:
+  config:
+    activate:
+      on-profile: local
 
 ---
 spring:
-  profiles: local
-
-
-
----
-spring:
-  profiles: dev
-
+  config:
+    activate:
+      on-profile: dev
 
 ---
 spring:
-  profiles: stag
-
+  config:
+    activate:
+      on-profile: stag
 
 ---
 spring:
-  profiles: prod
+  config:
+    activate:
+      on-profile: prod
